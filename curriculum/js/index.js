@@ -1,14 +1,30 @@
 "use strict"
 
-const divDom = document.getElementById('table-data-wrap')
+function $(id) {
+	return document.getElementById(id)
+}
 
-const tableDom = document.createElement('table')
+function createEl(node) {
+	return document.createElement(node)
+}
 
-tableDom.setAttribute('width', '100%')
-tableDom.setAttribute('border', '0')
-tableDom.setAttribute('cellpadding', '0')
-tableDom.setAttribute('cellspacing', '0')
-tableDom.setAttribute('id', 'table-data-wrap')
+function setAttr(node, styles) {
+	for(let key in styles) {
+		node.setAttribute(key, styles[key])
+	}
+}
+
+const divDom = $('table-data-wrap')
+const tableDom = createEl('table')
+
+let styles = {
+	width: '100%',
+	border:'0',
+	cellpadding:'0',
+	cellspacing:'0',
+	id:'table-data-wrap'
+}
+setAttr(tableDom, styles)
 
 
 tableDom.innerHTML = `<thead>
